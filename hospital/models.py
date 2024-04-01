@@ -15,7 +15,7 @@ class Doctor(models.Model):
     user=models.OneToOneField(User,on_delete=models.CASCADE)
     profile_pic= models.ImageField(upload_to='profile_pic/DoctorProfilePic/',null=True,blank=True)
     address = models.CharField(max_length=40)
-    mobile = models.CharField(max_length=20,null=True)
+    mobile = models.CharField(max_length=10,null=True)
     department= models.CharField(max_length=50,choices=departments,default='Cardiologist')
     licence = models.CharField(max_length=8,null=True)
     status=models.BooleanField(default=False)
@@ -41,7 +41,7 @@ class Patient(models.Model):
     profile_pic= models.ImageField(upload_to='profile_pic/PatientProfilePic/',null=True,blank=True)
     address = models.CharField(max_length=40)
     licence = models.CharField(max_length=8,null=True) #added
-    mobile = models.CharField(max_length=20,null=False)
+    mobile = models.CharField(max_length=10,null=False)
     symptoms = models.CharField(max_length=100,null=False)
     assignedDoctorId = models.PositiveIntegerField(null=True)
     admitDate=models.DateField(auto_now=True)
@@ -72,7 +72,7 @@ class PatientDischargeDetails(models.Model):
     patientName=models.CharField(max_length=40)
     assignedDoctorName=models.CharField(max_length=40)
     address = models.CharField(max_length=40)
-    mobile = models.CharField(max_length=20,null=True)
+    mobile = models.CharField(max_length=10,null=True)
     symptoms = models.CharField(max_length=100,null=True)
 
     admitDate=models.DateField(null=False)
